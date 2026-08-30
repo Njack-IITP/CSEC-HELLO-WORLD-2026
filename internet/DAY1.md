@@ -9,6 +9,19 @@ How a webpage actually loads, from hitting Enter on a URL to pixels on screen. Y
 ### Client-Server Model
 When you visit a website, your browser (the **client**) sends a request to a **server**, which sends back the page. Every webpage you've ever loaded is this exchange happening in milliseconds.
 
+```mermaid
+sequenceDiagram
+    participant Browser as Your Browser
+    participant DNS as DNS Server
+    participant Server as Web Server
+    Browser->>DNS: What's the IP for example.com?
+    DNS-->>Browser: 93.184.216.34
+    Browser->>Server: GET / HTTP/1.1
+    Server-->>Browser: 200 OK + HTML
+    Browser->>Server: GET /style.css
+    Server-->>Browser: 200 OK + CSS
+```
+
 ### HTTP Request/Response
 Every request has:
 - A **method**: `GET` (fetch something) or `POST` (send something)

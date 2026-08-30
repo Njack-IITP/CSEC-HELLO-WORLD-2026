@@ -16,6 +16,18 @@ A login form builds a database query from your email and password. If the app co
 
 The classic: typing `' OR true--` as the email makes the `WHERE` clause always true and comments out the password check. You're logged in as admin without knowing the password.
 
+```mermaid
+flowchart TD
+    subgraph normal["Normal login"]
+        A1["Input: user@test.com"] --> B1["WHERE email = 'user@test.com'\nAND password = 'pass123'"]
+        B1 --> C1["No match → login failed"]
+    end
+    subgraph injected["SQL injection"]
+        A2["Input: ' OR true--"] --> B2["WHERE email = '' OR true\n-- AND password = '...'"]
+        B2 --> C2["Always true → logged in as admin"]
+    end
+```
+
 **What stops it:** parameterized queries. The database treats your input as data, never as SQL code.
 
 ### Cross-Site Scripting (XSS)

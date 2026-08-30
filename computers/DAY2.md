@@ -10,6 +10,16 @@ How memory is laid out when a program runs, what the stack actually is, and what
 
 When a program runs, the OS gives it a virtual address space divided into regions:
 
+```mermaid
+flowchart TD
+    A["⬆ High addresses"] --- B["Stack\n(grows ↓)\nlocal variables, return addresses"]
+    B --- C["...\n(unused space)"]
+    C --- D["Heap\n(grows ↑)\nmalloc'd memory"]
+    D --- E["Data (.data / .bss)\nglobal variables"]
+    E --- F["Code (.text)\ninstructions"]
+    F --- G["⬇ Low addresses"]
+```
+
 - **Code (`.text`)**: the instructions (read-only, executable)
 - **Data (`.data` / `.bss`)**: global and static variables
 - **Heap**: dynamically allocated memory (`malloc`), grows upward

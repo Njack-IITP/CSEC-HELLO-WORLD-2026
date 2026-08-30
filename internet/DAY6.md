@@ -10,6 +10,21 @@ Why professionals look before they touch. Recon comes before any testing. You'll
 
 Before testing anything, you need to know what's there. What services are running? What ports are open? What's the attack surface? Recon answers these questions without touching the target aggressively.
 
+```mermaid
+flowchart TD
+    subgraph passive["Passive recon (no contact)"]
+        P1["crt.sh\ncertificate logs"]
+        P2["WHOIS\ndomain info"]
+        P3["Google dorking"]
+    end
+    subgraph active["Active recon (touches target)"]
+        A1["Nmap\nport scan"]
+        A2["Directory\nbrute force"]
+    end
+    passive --> R["Combined picture:\nsubdomains, services,\nopen ports, tech stack"]
+    active --> R
+```
+
 ### Port Scanning with Nmap
 
 A **port scan** checks which ports on a machine are open and what services are listening. An open port means a service is running and accepting connections.

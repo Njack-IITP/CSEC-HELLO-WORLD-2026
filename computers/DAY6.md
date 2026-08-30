@@ -14,6 +14,23 @@ C arrays and buffers have no built-in bounds checking. If you write past the end
 
 Remember Day 2: the **return address** sits on the stack, right after your local variables. If a buffer on the stack has no bounds check (like `gets()`), you can write past it, keep writing through the saved base pointer, and overwrite the return address with an address you choose.
 
+```mermaid
+flowchart TD
+    subgraph before["Before overflow"]
+        direction TB
+        B1["Return address → caller"]
+        B2["Saved rbp"]
+        B3["buffer (64 bytes)"]
+    end
+    subgraph after["After overflow"]
+        direction TB
+        A1["Return address → win()"]
+        A2["AAAAAAAAAA"]
+        A3["AAAAAAAAAA..."]
+    end
+    before -->|"gets() writes\npast the buffer"| after
+```
+
 When the function returns, `ret` pops your chosen address instead of the real one, and the program jumps wherever you pointed it.
 
 ### What Modern Systems Do About This

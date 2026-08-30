@@ -14,6 +14,22 @@ The difference between encoding, hashing, and encryption, and why it matters. Yo
 | **Hashing** (MD5, SHA-256) | No (one-way) | No | Fingerprinting: same input always gives same output |
 | **Encryption** (AES, RSA) | Yes | Yes | Actual protection, unreadable without the key |
 
+```mermaid
+flowchart LR
+    subgraph Encoding
+        E1["hello"] -->|"Base64"| E2["aGVsbG8="]
+        E2 -->|"decode"| E3["hello"]
+    end
+    subgraph Hashing
+        H1["hello"] -->|"SHA-256"| H2["2cf24d..."]
+        H2 -.->|"one-way, no going back"| H3["???"]
+    end
+    subgraph Encryption
+        C1["hello"] -->|"key + AES"| C2["5d41402..."]
+        C2 -->|"same key"| C3["hello"]
+    end
+```
+
 ### Symmetric vs. Asymmetric
 
 - **Symmetric**: same key encrypts and decrypts (AES). Fast, but you need a way to share the key safely.

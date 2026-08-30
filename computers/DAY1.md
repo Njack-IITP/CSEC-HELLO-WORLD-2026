@@ -10,6 +10,14 @@ What actually happens when you compile a C program, and how to read the result w
 
 When you write C and hit "compile," four things happen in sequence:
 
+```mermaid
+flowchart LR
+    A["hello.c"] -->|"gcc -E\npreprocess"| B["hello.i"]
+    B -->|"gcc -S\ncompile"| C["hello.s\n(assembly)"]
+    C -->|"gcc -c\nassemble"| D["hello.o\n(object)"]
+    D -->|"gcc\nlink"| E["hello\n(executable)"]
+```
+
 1. **Preprocess**: `#include` and `#define` get expanded (text substitution)
 2. **Compile**: C becomes assembly (human-readable machine instructions)
 3. **Assemble**: assembly becomes machine code (binary, one `.o` file per source file)

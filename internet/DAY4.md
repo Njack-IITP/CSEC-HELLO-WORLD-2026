@@ -12,6 +12,15 @@ A `.pcap` (packet capture) file is a saved recording of network traffic, every p
 
 ### The Forensics Workflow
 
+```mermaid
+flowchart LR
+    A[".pcap file"] --> B["Open in\nWireshark"]
+    B --> C["Statistics →\nConversations"]
+    C --> D["Filter:\nhttp.request.method\n== POST"]
+    D --> E["Follow →\nHTTP Stream"]
+    E --> F["Read cleartext\ncredentials"]
+```
+
 1. **Narrow first**: `Statistics → Conversations` shows you who talked to whom and how much data moved. Start here, not by scrolling through thousands of packets.
 2. **Filter**: type `http` in the filter bar to see only HTTP traffic. Add specifics: `http.request.method == "POST"` to find form submissions.
 3. **Reconstruct**: right-click a packet → `Follow → HTTP Stream` to see the full conversation as readable text.

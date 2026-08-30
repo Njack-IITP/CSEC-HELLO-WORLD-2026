@@ -14,6 +14,15 @@ Find a partner from the other track. The capstone uses skills from both sides. P
 
 Work through these stages in order:
 
+```mermaid
+flowchart LR
+    A["1. Recon\nNmap scan"] --> B["2. Web\nLogin bypass"]
+    B --> C["3. Crypto\nDecode clue"]
+    C --> D["4. Binary\nstrings on file"]
+    D --> E["5. Forensics\n.pcap analysis"]
+    E --> F["Flag"]
+```
+
 ### Stage 1: Recon (Internet Track, Day 6)
 Scan the capstone server with Nmap. Identify what's running and find the web service.
 

@@ -14,6 +14,17 @@ A **process** is a running program. It gets its own memory space, its own file d
 
 Programs can't directly touch hardware, open files, or send network traffic. They ask the kernel to do it via **system calls** (syscalls). `read`, `write`, `open`, `mmap`, `execve`: everything a program does to interact with the outside world goes through a syscall.
 
+```mermaid
+sequenceDiagram
+    participant Prog as Your Program (Ring 3)
+    participant Kernel as Kernel (Ring 0)
+    participant HW as Hardware
+    Prog->>Kernel: syscall: write(1, "Hello", 5)
+    Kernel->>HW: Send bytes to terminal
+    HW-->>Kernel: Done
+    Kernel-->>Prog: Return: 5 bytes written
+```
+
 ### Privilege Rings (Conceptual)
 
 The CPU has privilege levels. User programs run in **ring 3** (restricted). The kernel runs in **ring 0** (full access). A syscall is the controlled gateway between the two. You don't need the ring math. Just the concept: your program can't do anything the kernel doesn't allow.
