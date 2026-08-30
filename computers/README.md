@@ -38,6 +38,35 @@ Install these **before Day 1**. Some (especially Ghidra) take a while:
 
 Give your VM at least 2 CPU cores and 4GB RAM. Ghidra wants headroom.
 
+### On Windows?
+
+Use WSL2 (Windows Subsystem for Linux). It gives you a real Linux terminal inside Windows, no VM needed.
+
+1. Open PowerShell as Administrator and run:
+   ```powershell
+   wsl --install
+   ```
+   This installs WSL2 with Ubuntu. Restart when prompted.
+
+2. After restart, open "Ubuntu" from the Start menu. Set a username and password when asked.
+
+3. Update and install the tools:
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   sudo apt install gcc gdb strace binutils python3 python3-pip -y
+   pip install pwntools
+   ```
+
+4. Install pwndbg:
+   ```bash
+   git clone https://github.com/pwndbg/pwndbg
+   cd pwndbg && ./setup.sh
+   ```
+
+5. Ghidra is a GUI app. Install it on Windows (not inside WSL) from [ghidra-sre.org](https://ghidra-sre.org/). It needs Java, which the installer bundles. Analyze binaries built inside WSL by navigating to `\\wsl$\Ubuntu\home\<your-username>\` in the Ghidra file picker.
+
+Everything else in this track runs directly inside the WSL terminal.
+
 ### On macOS?
 
 This track works natively on Mac. The concepts are identical, a few tool names differ:

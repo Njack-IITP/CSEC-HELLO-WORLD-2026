@@ -40,6 +40,22 @@ If using Kali, update after first boot:
 sudo apt update && sudo apt full-upgrade -y
 ```
 
+### On Windows?
+
+Use WSL2 (Windows Subsystem for Linux). Open PowerShell as Administrator and run:
+```powershell
+wsl --install
+```
+Restart, then open "Ubuntu" from the Start menu. Inside WSL:
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl dnsutils iputils-ping nmap python3 python3-pip -y
+```
+
+For Wireshark, install the [Windows version](https://www.wireshark.org/download.html) (GUI works better on Windows than inside WSL). You can open `.pcap` files from WSL by navigating to `\\wsl$\Ubuntu\home\<your-username>\`.
+
+Docker: install [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/) with WSL2 backend enabled (it integrates automatically).
+
 ### On macOS?
 
 Most of this track works natively on your Mac without a VM:
