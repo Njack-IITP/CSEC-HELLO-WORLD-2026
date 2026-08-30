@@ -66,6 +66,8 @@ readelf -S hello
 objdump -d hello | head -80
 ```
 
+> **macOS?** You'll get a Mach-O binary instead of ELF. Use `otool -l hello` instead of `readelf` and `otool -tV hello` instead of `objdump -d`. The sections are named differently (`__TEXT` instead of `.text`) but the concepts are the same.
+
 Find:
 - The **entry point**: which section is it in?
 - Which section holds the **instructions** your code compiled to

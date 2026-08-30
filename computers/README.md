@@ -21,9 +21,9 @@ By the end of this track, you'll be able to:
 | [2](DAY2.md) | Memory and the Stack |
 | [3](DAY3.md) | OS Fundamentals |
 | [4](DAY4.md) | The Toolkit (Ghidra + gdb) |
-| [5](DAY5.md) | Taste: Reverse Engineering |
-| [6](DAY6.md) | Taste: Pwn / Binary Exploitation |
-| [7](DAY7.md) | Synthesis & Discussion |
+| [5](DAY5.md) | Reverse Engineering |
+| [6](DAY6.md) | Pwn / Binary Exploitation |
+| [7](DAY7.md) | Joint Capstone |
 
 Content is released one day at a time.
 
@@ -37,6 +37,31 @@ Install these **before Day 1**. Some (especially Ghidra) take a while:
 - Python 3 + pwntools (`pip install pwntools`), needed for Day 6
 
 Give your VM at least 2 CPU cores and 4GB RAM. Ghidra wants headroom.
+
+### On macOS?
+
+This track works natively on Mac. The concepts are identical, a few tool names differ:
+
+| Linux tool | macOS equivalent | Install |
+|---|---|---|
+| `gcc` | `clang` (the `gcc` command works too) | `xcode-select --install` |
+| `objdump -d` | `otool -tV` | already installed |
+| `readelf -S` | `otool -l` | already installed |
+| `file`, `strings` | same | already installed |
+| `strace` | `dtruss` (needs `sudo`) | already installed |
+| `gdb` | `lldb` | already installed |
+| pwndbg (gdb plugin) | not needed, `lldb` has built-in equivalents | — |
+
+macOS compiles to **Mach-O** format instead of ELF. The sections have different names (e.g. `__TEXT` instead of `.text`) but the concepts are the same. Each day file has a "macOS?" note where commands differ.
+
+**Ghidra** and **pwntools** install and run natively on macOS.
+
+For Days 5-6, the challenge binaries you're given are Linux (ELF) format. To run them, use Docker:
+```bash
+docker run -it --cap-add=SYS_PTRACE -v $(pwd):/work ubuntu bash
+# inside the container: /work/crackme1, /work/overflow1, etc.
+```
+Ghidra can analyze these ELF binaries on your Mac without Docker.
 
 ## Resources
 

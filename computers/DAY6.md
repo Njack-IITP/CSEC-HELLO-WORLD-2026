@@ -50,6 +50,8 @@ You'll be given a binary called `overflow1`. It has:
 
 Your job: make the program call `win()`.
 
+> **macOS?** The `overflow1` binary is Linux (ELF) format. Run it via Docker: `docker run -it --cap-add=SYS_PTRACE -v $(pwd):/work ubuntu bash`, then work inside the container. Ghidra and `objdump` analysis can be done natively on Mac.
+
 ### Step-by-Step
 
 1. **Find the buffer size and offset to the return address:**

@@ -14,6 +14,8 @@ You'll be given a compiled binary called `crackme1`. It asks for a password and 
 
 Your job: find the password without guessing.
 
+> **macOS?** The challenge binaries are Linux (ELF) format. `strings` and Ghidra work on them natively on Mac. To actually *run* them, use Docker: `docker run -it -v $(pwd):/work ubuntu /work/crackme1`
+
 ### Approach: Static Analysis
 
 Before running it under gdb or opening Ghidra, try the simplest thing first:

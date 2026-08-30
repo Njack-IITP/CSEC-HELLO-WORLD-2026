@@ -22,7 +22,7 @@ Both tracks run in parallel. Pick whichever sounds more interesting. On Day 7, t
 
 ## How it works
 
-1. Content drops one day at a time, starting **August 23, 2026**
+1. Content drops one day at a time, starting **August 30, 2026**
 2. Each day has a short walkthrough and a mini-challenge with a hidden flag
 3. Find the flag, submit it on the [CTFd scoreboard](./SUBMISSION-GUIDE.md), earn points
 4. Complete all 7 days to qualify for the offline CTF event
@@ -31,12 +31,12 @@ Check the [submission guide](./SUBMISSION-GUIDE.md) for how flags work and the [
 
 ## What you'll need
 
-A Linux environment (Kali, Ubuntu, or WSL2), a browser, and a terminal. Each track's README has the full setup list. Install everything before Day 1 so you're ready to go.
+A Linux environment (Kali, Ubuntu, or WSL2), a browser, and a terminal. Both tracks also work on macOS with native tool equivalents (no VM required). Each track's README has the full setup list including macOS alternatives. Install everything before Day 1 so you're ready to go.
 
 ## Questions?
 
 Ask in the CSEC Discord server. Mentors are around to help, and hints get released throughout the week. This is a learning event, not a competition to weed people out.
 
-See you on August 23.
+See you on August 30.
 
 *NJACK Cybersecurity Division, IIT Patna*

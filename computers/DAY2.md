@@ -73,6 +73,8 @@ gcc -O0 -g -o calls calls.c
 gdb ./calls
 ```
 
+> **macOS?** Use `lldb ./calls` instead. Set a breakpoint with `b inner`, run with `r`, examine the stack with `memory read -count 20 -format x -size 8 $rsp`, and backtrace with `bt`.
+
 ### 2. Watch the Stack
 
 In gdb:
