@@ -42,6 +42,8 @@ Run `strace` on your hello program from Day 1:
 strace ./hello
 ```
 
+> **macOS?** Use `dtruss` instead: `sudo dtruss ./hello`. Same idea, different name.
+
 You'll see every syscall: `execve`, `mmap`, `write`, and more. The `write(1, "Hello from NJACK!\n", 18)` line is your `printf`. It became a `write` syscall to file descriptor 1 (stdout).
 
 ### 2. Compare with a File-Opening Program
@@ -71,6 +73,8 @@ ls -la /etc/shadow          # you can't read this (permissions)
 ps aux | head -20            # running processes
 ps aux | grep <your-user>   # just your processes
 ```
+
+> **macOS?** macOS doesn't have `/etc/shadow`. Try `ls -la /etc/master.passwd` instead (same concept, different file). `ps aux` works the same.
 
 ## Practice: OverTheWire Bandit
 

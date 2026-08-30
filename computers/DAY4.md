@@ -8,6 +8,8 @@ The two tools you'll use for the rest of the week (and beyond): **Ghidra** (disa
 
 **Setup check:** You should have Ghidra and pwndbg installed before today. If not, see the track README for install instructions. Do this first.
 
+> **macOS?** Ghidra runs natively on Mac. For debugging, use `lldb` instead of `gdb`. The commands differ: `lldb ./patterns`, then `b check_positive` (breakpoint), `r` (run), `di` (disassemble), `si` (step), `register read` (registers).
+
 ## Core Concepts
 
 ### Disassemblers vs. Debuggers

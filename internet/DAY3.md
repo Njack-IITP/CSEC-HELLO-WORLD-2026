@@ -27,7 +27,7 @@ flowchart LR
         H2 -.->|"one-way, no going back"| H3["???"]
     end
     subgraph Encryption
-        C1["hello"] -->|"key + AES"| C2["5d41402..."]
+        C1["hello"] -->|"key + AES"| C2["a8f5f167..."]
         C2 -->|"same key"| C3["hello"]
     end
 ```

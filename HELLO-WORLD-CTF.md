@@ -30,7 +30,7 @@ To qualify for the offline event, **complete all days of the walkthrough**. No m
 
 | What | When |
 |---|---|
-| Walkthrough starts | August 23, 2026 |
+| Walkthrough starts | August 30, 2026 |
 | Daily content drops | One day's material released each morning |
 | Flag submission deadline | End of each day |
 | Offline CTF event | After the walkthrough week (date announced on Discord) |
