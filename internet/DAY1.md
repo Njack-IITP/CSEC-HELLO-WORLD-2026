@@ -1,3 +1,5 @@
+<img src="../assets/owasp.png" alt="OWASP" height="40">
+
 # Day 1: How the Web Actually Works
 
 ## What You'll Learn Today

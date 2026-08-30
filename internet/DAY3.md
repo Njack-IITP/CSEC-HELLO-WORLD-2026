@@ -1,3 +1,5 @@
+<img src="../assets/cyberchef.svg" alt="CyberChef" height="40">
+
 # Day 3: Cryptography & the XOR Atom
 
 ## What You'll Learn Today

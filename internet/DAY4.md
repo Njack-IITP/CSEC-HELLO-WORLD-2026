@@ -1,3 +1,5 @@
+<img src="../assets/wireshark.svg" alt="Wireshark" height="40">
+
 # Day 4: Taste: Forensics
 
 ## What You'll Learn Today

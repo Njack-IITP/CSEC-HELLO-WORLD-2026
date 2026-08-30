@@ -1,3 +1,5 @@
+<img src="../assets/nmap.png" alt="Nmap" height="40">
+
 # Day 6: A Peek at Recon & Enumeration
 
 ## What You'll Learn Today

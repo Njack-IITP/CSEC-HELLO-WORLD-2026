@@ -1,3 +1,5 @@
+<img src="../assets/ghidra.png" alt="Ghidra" height="40"> <img src="../assets/gdb.svg" alt="GDB" height="40">
+
 # Day 4: The Toolkit
 
 ## What You'll Learn Today

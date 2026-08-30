@@ -1,3 +1,5 @@
+<img src="../assets/owasp.png" alt="OWASP" height="40">
+
 # Day 2: Web App Security Basics
 
 ## What You'll Learn Today
