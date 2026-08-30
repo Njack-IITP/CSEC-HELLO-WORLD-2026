@@ -1,23 +1,42 @@
-# CSEC Walkthrough
+# CSEC Hello World 2026
 
-A hands-on, beginner-friendly walkthrough into cybersecurity and networking. No prior security experience required. You need a computer, a terminal, and curiosity.
+Welcome to NJACK's cybersecurity bootcamp for freshers at IIT Patna.
 
-## Tracks
+Over 7 days, you'll go from "what's a terminal?" to exploiting a buffer overflow and cracking encrypted traffic. No prior security experience required. Everything you need to solve each challenge is taught in the walkthrough itself.
 
-| Track | What it covers |
-|---|---|
-| [**computers/**](./computers/) | How computers work under the hood: the fundamentals that make everything else click |
-| [**internet/**](./internet/) | How the internet works, web security, cryptography, forensics, and recon |
+## What's in it for you
 
-Each track is released day by day. Start with Day 1 and work forward.
+- Learn how computers and the internet actually work, not just how to use them
+- Hack into (intentionally vulnerable) web apps, crack password-protected binaries, and pull credentials out of network traffic
+- Compete on a live leaderboard with daily challenges and prizes
+- Qualify for a live, in-person CTF event at the end of the week
 
-## Getting Started
+## Pick a track
 
-1. Read the track README (`computers/README.md` or `internet/README.md`) to see what you'll learn and what to install
-2. Work through each day's content in order
-3. Complete the mini-challenges — they're how you earn points
+| Track | What you'll learn | Start here |
+|---|---|---|
+| **Computers** | How programs become binaries, memory and the stack, reverse engineering, buffer overflows | [computers/README.md](./computers/) |
+| **Internet** | How the web works, web app security, cryptography, forensics, networking, recon | [internet/README.md](./internet/) |
 
-## CTF & Submission
+Both tracks run in parallel. Pick whichever sounds more interesting. On Day 7, the two tracks come together for a joint capstone challenge where you'll pair up with someone from the other track.
 
-- **[HELLO-WORLD-CTF.md](./HELLO-WORLD-CTF.md)**: what the CTF is, how it works, and how to qualify for the offline event
-- **[SUBMISSION-GUIDE.md](./SUBMISSION-GUIDE.md)**: how to submit flags and earn prizes
+## How it works
+
+1. Content drops one day at a time, starting **August 23, 2026**
+2. Each day has a short walkthrough and a mini-challenge with a hidden flag
+3. Find the flag, submit it on the [CTFd scoreboard](./SUBMISSION-GUIDE.md), earn points
+4. Complete all 7 days to qualify for the offline CTF event
+
+Check the [submission guide](./SUBMISSION-GUIDE.md) for how flags work and the [CTF overview](./HELLO-WORLD-CTF.md) for the full timeline and rules.
+
+## What you'll need
+
+A Linux environment (Kali, Ubuntu, or WSL2), a browser, and a terminal. Each track's README has the full setup list. Install everything before Day 1 so you're ready to go.
+
+## Questions?
+
+Ask in the CSEC Discord server. Mentors are around to help, and hints get released throughout the week. This is a learning event, not a competition to weed people out.
+
+See you on August 23.
+
+*NJACK Cybersecurity Division, IIT Patna*

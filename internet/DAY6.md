@@ -1,3 +1,5 @@
+<img src="../assets/nmap.png" alt="Nmap" height="40">
+
 # Day 6: A Peek at Recon & Enumeration
 
 ## What You'll Learn Today
@@ -9,6 +11,21 @@ Why professionals look before they touch. Recon comes before any testing. You'll
 ### Why Recon First
 
 Before testing anything, you need to know what's there. What services are running? What ports are open? What's the attack surface? Recon answers these questions without touching the target aggressively.
+
+```mermaid
+flowchart TD
+    subgraph passive["Passive recon (no contact)"]
+        P1["crt.sh\ncertificate logs"]
+        P2["WHOIS\ndomain info"]
+        P3["Google dorking"]
+    end
+    subgraph active["Active recon (touches target)"]
+        A1["Nmap\nport scan"]
+        A2["Directory\nbrute force"]
+    end
+    passive --> R["Combined picture:\nsubdomains, services,\nopen ports, tech stack"]
+    active --> R
+```
 
 ### Port Scanning with Nmap
 
@@ -44,17 +61,11 @@ Read through the output line by line. For each open port:
 
 ### 2. Certificate Lookup
 
-Go to [crt.sh](https://crt.sh/) and look up a domain you own (or one provided for the course). Note any subdomains or interesting entries in the certificate history.
+Go to [crt.sh](https://crt.sh/) and look up a domain you own (or one provided for the course).
+
+The results table shows every TLS certificate ever issued for that domain. The "Common Name" and "Matching Identities" columns are where subdomains show up. Look for entries like `staging.example.com`, `api.example.com`, or anything you didn't know existed. Each one is a piece of infrastructure someone set up and possibly forgot about.
 
 **Important:** Only look up domains you own or that are provided for the course.
-
-## Mini-Challenge: File the Intel Report
-
-Turn your Nmap output into a one-page report:
-- For each open port: name the service, guess what it's used for, flag anything worth investigating further
-- Self-grade against the model answer sheet (provided by your mentor)
-
-Submit on the CTFd scoreboard.
 
 ## Resources
 

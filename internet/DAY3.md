@@ -1,3 +1,5 @@
+<img src="../assets/cyberchef.svg" alt="CyberChef" height="40">
+
 # Day 3: Cryptography & the XOR Atom
 
 ## What You'll Learn Today
@@ -13,6 +15,22 @@ The difference between encoding, hashing, and encryption, and why it matters. Yo
 | **Encoding** (Base64, hex) | Yes | No | Representation, not protection |
 | **Hashing** (MD5, SHA-256) | No (one-way) | No | Fingerprinting: same input always gives same output |
 | **Encryption** (AES, RSA) | Yes | Yes | Actual protection, unreadable without the key |
+
+```mermaid
+flowchart LR
+    subgraph Encoding
+        E1["hello"] -->|"Base64"| E2["aGVsbG8="]
+        E2 -->|"decode"| E3["hello"]
+    end
+    subgraph Hashing
+        H1["hello"] -->|"SHA-256"| H2["2cf24d..."]
+        H2 -.->|"one-way, no going back"| H3["???"]
+    end
+    subgraph Encryption
+        C1["hello"] -->|"key + AES"| C2["5d41402..."]
+        C2 -->|"same key"| C3["hello"]
+    end
+```
 
 ### Symmetric vs. Asymmetric
 
@@ -34,8 +52,10 @@ Open [CyberChef](https://gchq.github.io/CyberChef/) for all of these.
 ### 1. Encoding vs. Hashing
 
 - Base64-encode a word, then decode it. It reverses perfectly
-- Hash the same word with MD5. Do it twice, get identical output
+- Hash the same word with MD5: in CyberChef, type your word in the Input box, add the "MD5" operation from the left panel, and the Output box shows the hash. Do it twice, get identical output
 - Change one letter, hash again. The output is completely different
+
+To check whether a hash matches a word, hash the word and compare the two hex strings. If they're identical, that word produced the hash. This is how you crack weak passwords: hash each candidate and see which one matches.
 
 ### 2. XOR Break
 
@@ -54,12 +74,6 @@ for key in range(256):
     if b"NJACK" in result:
         print(f"Key: {key:#04x} → {result.decode()}")
 ```
-
-## Mini-Challenge
-
-You'll be given 3 short hashed passwords (deliberately weak/common ones). Recover the original word using CyberChef or a hash lookup, and explain in one line why it was easy.
-
-Submit on the CTFd scoreboard.
 
 ## Resources
 

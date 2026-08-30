@@ -10,6 +10,14 @@ What actually happens when you compile a C program, and how to read the result w
 
 When you write C and hit "compile," four things happen in sequence:
 
+```mermaid
+flowchart LR
+    A["hello.c"] -->|"gcc -E\npreprocess"| B["hello.i"]
+    B -->|"gcc -S\ncompile"| C["hello.s\n(assembly)"]
+    C -->|"gcc -c\nassemble"| D["hello.o\n(object)"]
+    D -->|"gcc\nlink"| E["hello\n(executable)"]
+```
+
 1. **Preprocess**: `#include` and `#define` get expanded (text substitution)
 2. **Compile**: C becomes assembly (human-readable machine instructions)
 3. **Assemble**: assembly becomes machine code (binary, one `.o` file per source file)
@@ -26,9 +34,10 @@ The executable you get on Linux is an **ELF** (Executable and Linkable Format). 
 
 ### Reading a Binary Without Running It
 
-Three commands that tell you what's inside:
+Four commands that tell you what's inside:
 
 - `file ./program`: what kind of binary is this? (ELF? 64-bit? dynamically linked?)
+- `strings ./program`: dump every printable string embedded in the binary. String literals, error messages, passwords left in the code by mistake. If a developer hardcoded a secret, `strings` will find it
 - `readelf -S ./program`: list all sections and their sizes
 - `objdump -d ./program`: disassemble it (show the machine code as assembly)
 
@@ -52,6 +61,7 @@ Compile and inspect:
 ```bash
 gcc -o hello hello.c
 file hello
+strings hello
 readelf -S hello
 objdump -d hello | head -80
 ```
@@ -59,7 +69,8 @@ objdump -d hello | head -80
 Find:
 - The **entry point**: which section is it in?
 - Which section holds the **instructions** your code compiled to
-- Which section holds the **string literal** `"Hello from NJACK!"`
+- Which section holds the **string literal** `"Hello from NJACK!"` (check: does `strings hello` show it?)
+- What else shows up in the `strings` output? Most of it is linker metadata, but your string is in there too
 
 ### 2. See Each Stage
 
@@ -77,16 +88,6 @@ Compare the sizes. Look at `hello.s`. That's what your C became before it turned
 ### Stretch (Optional)
 
 Paste your `hello.c` into [godbolt.org](https://godbolt.org/). Toggle between `-O0` (no optimization) and `-O2` (optimized). Watch how the compiler reshapes even simple code.
-
-## Mini-Challenge: Section Scavenger Hunt
-
-You'll be given a mystery binary. Run `readelf -S` and `objdump -d` on it, then answer:
-
-1. Which section is the entry point located in?
-2. Which section would grow if the program had more string literals?
-3. Which section exists at runtime but takes up no space on disk, and why?
-
-Submit your answers on the CTFd scoreboard.
 
 ## Resources
 

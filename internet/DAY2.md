@@ -1,3 +1,5 @@
+<img src="../assets/owasp.png" alt="OWASP" height="40">
+
 # Day 2: Web App Security Basics
 
 ## What You'll Learn Today
@@ -15,6 +17,18 @@ Web apps take input from users (forms, URLs, search boxes) and use it to build d
 A login form builds a database query from your email and password. If the app concatenates your input directly into the query without sanitizing it, you can inject SQL that changes the query's logic.
 
 The classic: typing `' OR true--` as the email makes the `WHERE` clause always true and comments out the password check. You're logged in as admin without knowing the password.
+
+```mermaid
+flowchart TD
+    subgraph normal["Normal login"]
+        A1["Input: user@test.com"] --> B1["WHERE email = 'user@test.com'\nAND password = 'pass123'"]
+        B1 --> C1["No match → login failed"]
+    end
+    subgraph injected["SQL injection"]
+        A2["Input: ' OR true--"] --> B2["WHERE email = '' OR true\n-- AND password = '...'"]
+        B2 --> C2["Always true → logged in as admin"]
+    end
+```
 
 **What stops it:** parameterized queries. The database treats your input as data, never as SQL code.
 
@@ -52,10 +66,6 @@ Find a search box or input field that reflects your input on the page. Type a ha
 ### 4. IDOR: Access Control
 
 While logged in, find a URL with a numeric ID (like a basket or order number). Change the number. Can you see another user's data?
-
-## Mini-Challenge
-
-Complete the 3 exercises above and submit a screenshot of each result on the CTFd scoreboard. This is about recognizing the pattern, not finding new vulnerabilities unaided.
 
 ## Resources
 

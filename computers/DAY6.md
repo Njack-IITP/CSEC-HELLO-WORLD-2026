@@ -14,6 +14,23 @@ C arrays and buffers have no built-in bounds checking. If you write past the end
 
 Remember Day 2: the **return address** sits on the stack, right after your local variables. If a buffer on the stack has no bounds check (like `gets()`), you can write past it, keep writing through the saved base pointer, and overwrite the return address with an address you choose.
 
+```mermaid
+flowchart TD
+    subgraph before["Before overflow"]
+        direction TB
+        B1["Return address → caller"]
+        B2["Saved rbp"]
+        B3["buffer (64 bytes)"]
+    end
+    subgraph after["After overflow"]
+        direction TB
+        A1["Return address → win()"]
+        A2["AAAAAAAAAA"]
+        A3["AAAAAAAAAA..."]
+    end
+    before -->|"gets() writes\npast the buffer"| after
+```
+
 When the function returns, `ret` pops your chosen address instead of the real one, and the program jumps wherever you pointed it.
 
 ### What Modern Systems Do About This
@@ -75,17 +92,6 @@ Your job: make the program call `win()`.
 ### If Your Offset Doesn't Match Others
 
 Offsets are compiler-version and OS-version dependent. If your number differs from someone else's, that's normal. Re-derive it on your own machine using the cyclic pattern method above.
-
-## Mini-Challenge
-
-Submit the flag from `overflow1` on the CTFd scoreboard.
-
-## Hints
-
-Stuck? Ask in Discord. Hints will be released progressively:
-1. Think about what `gets()` doesn't check
-2. The return address is a fixed number of bytes past the start of the buffer. Find that number
-3. Once you control the return address, point it at `win()`
 
 ## Resources
 

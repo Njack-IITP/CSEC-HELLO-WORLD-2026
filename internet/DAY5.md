@@ -12,6 +12,23 @@ When you type `example.com`, your browser doesn't know where that is. DNS turns 
 
 The lookup travels through a chain: your local resolver → root servers → TLD servers → the authoritative server for that domain. The result gets cached so the next lookup is instant.
 
+```mermaid
+sequenceDiagram
+    participant You as Your Computer
+    participant Local as Local Resolver
+    participant Root as Root Server
+    participant TLD as .com TLD Server
+    participant Auth as example.com's Server
+    You->>Local: Where is example.com?
+    Local->>Root: Where is .com?
+    Root-->>Local: Ask the .com TLD
+    Local->>TLD: Where is example.com?
+    TLD-->>Local: Ask its nameserver
+    Local->>Auth: What's the IP?
+    Auth-->>Local: 93.184.216.34
+    Local-->>You: 93.184.216.34 (cached)
+```
+
 ### TCP vs. UDP
 
 - **TCP**: reliable, ordered delivery. Used for web pages, email, file transfers. If a packet drops, it's resent.
@@ -53,10 +70,6 @@ You'll be given a pre-made packet capture showing a spoofed DNS response next to
 1. Go to an IP-lookup site (e.g., whatismyipaddress.com) and note your public IP
 2. Connect to a free/test VPN (e.g., [ProtonVPN free tier](https://protonvpn.com/free-vpn))
 3. Check your IP again. It's different. That's the VPN working.
-
-## Mini-Challenge
-
-Submit the field that identifies the spoofed DNS response on the CTFd scoreboard.
 
 ## Resources
 

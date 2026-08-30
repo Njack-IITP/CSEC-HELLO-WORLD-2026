@@ -1,3 +1,5 @@
+<img src="../assets/wireshark.svg" alt="Wireshark" height="40">
+
 # Day 4: Taste: Forensics
 
 ## What You'll Learn Today
@@ -11,6 +13,15 @@ How to read captured network traffic. You'll open a packet capture file in Wires
 A `.pcap` (packet capture) file is a saved recording of network traffic, every packet that crossed the wire during the capture window. Wireshark lets you open it, filter it, and reconstruct what happened.
 
 ### The Forensics Workflow
+
+```mermaid
+flowchart LR
+    A[".pcap file"] --> B["Open in\nWireshark"]
+    B --> C["Statistics →\nConversations"]
+    C --> D["Filter:\nhttp.request.method\n== POST"]
+    D --> E["Follow →\nHTTP Stream"]
+    E --> F["Read cleartext\ncredentials"]
+```
 
 1. **Narrow first**: `Statistics → Conversations` shows you who talked to whom and how much data moved. Start here, not by scrolling through thousands of packets.
 2. **Filter**: type `http` in the filter bar to see only HTTP traffic. Add specifics: `http.request.method == "POST"` to find form submissions.
@@ -36,12 +47,6 @@ You'll be given a small, curated `.pcap` file. Open it in Wireshark.
 ### 3. Export an Object (Stretch)
 
 `File → Export Objects → HTTP`. Wireshark can pull out files (images, HTML pages, downloads) that were transferred in the capture. Export one and hash it with `sha256sum` to verify its integrity.
-
-## Mini-Challenge
-
-Extract the cleartext credential from the provided `.pcap` and submit the username and password on the CTFd scoreboard.
-
-**Stretch:** Try a [picoGym](https://play.picoctf.org/) forensics challenge.
 
 ## Resources
 

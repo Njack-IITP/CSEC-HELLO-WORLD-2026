@@ -14,6 +14,17 @@ A **process** is a running program. It gets its own memory space, its own file d
 
 Programs can't directly touch hardware, open files, or send network traffic. They ask the kernel to do it via **system calls** (syscalls). `read`, `write`, `open`, `mmap`, `execve`: everything a program does to interact with the outside world goes through a syscall.
 
+```mermaid
+sequenceDiagram
+    participant Prog as Your Program (Ring 3)
+    participant Kernel as Kernel (Ring 0)
+    participant HW as Hardware
+    Prog->>Kernel: syscall: write(1, "Hello", 5)
+    Kernel->>HW: Send bytes to terminal
+    HW-->>Kernel: Done
+    Kernel-->>Prog: Return: 5 bytes written
+```
+
 ### Privilege Rings (Conceptual)
 
 The CPU has privilege levels. User programs run in **ring 3** (restricted). The kernel runs in **ring 0** (full access). A syscall is the controlled gateway between the two. You don't need the ring math. Just the concept: your program can't do anything the kernel doesn't allow.
@@ -61,11 +72,17 @@ ps aux | head -20            # running processes
 ps aux | grep <your-user>   # just your processes
 ```
 
-## Mini-Challenge: CLI Warm-Up
+## Practice: OverTheWire Bandit
 
-Work through [OverTheWire Bandit](https://overthewire.org/wargames/bandit/), levels 0 through 5. Each level requires a different Linux command or concept to get the password for the next level.
+[OverTheWire Bandit](https://overthewire.org/wargames/bandit/) is a free wargame where each level requires a different Linux command to get the password for the next level. Levels 0 through 5 cover `ssh`, `cat`, `find`, `grep`, and file permissions, all things you've seen today.
 
-Submit a screenshot of your Bandit level 5 shell on the CTFd scoreboard.
+SSH into the first level:
+```bash
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+# password: bandit0
+```
+
+Work through levels 0-5. Each password you find is also the login for the next level.
 
 ## Resources
 

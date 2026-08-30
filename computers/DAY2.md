@@ -10,6 +10,16 @@ How memory is laid out when a program runs, what the stack actually is, and what
 
 When a program runs, the OS gives it a virtual address space divided into regions:
 
+```mermaid
+flowchart TD
+    A["⬆ High addresses"] --- B["Stack\n(grows ↓)\nlocal variables, return addresses"]
+    B --- C["...\n(unused space)"]
+    C --- D["Heap\n(grows ↑)\nmalloc'd memory"]
+    D --- E["Data (.data / .bss)\nglobal variables"]
+    E --- F["Code (.text)\ninstructions"]
+    F --- G["⬇ Low addresses"]
+```
+
 - **Code (`.text`)**: the instructions (read-only, executable)
 - **Data (`.data` / `.bss`)**: global and static variables
 - **Heap**: dynamically allocated memory (`malloc`), grows upward
@@ -88,17 +98,6 @@ info registers rip rsp rbp rax
 ```
 
 Watch `rip` advance. When `inner` returns, watch `rsp` change as the frame gets popped.
-
-## Mini-Challenge: Guess the Stack
-
-Given the program above, order these four stack states chronologically:
-
-- **State A:** `inner`'s frame is on top, `main`'s and `outer`'s frames beneath it
-- **State B:** only `main`'s frame exists
-- **State C:** `outer`'s frame is on top, `main`'s beneath it, `inner` has returned
-- **State D:** `main`'s and `outer`'s frames exist, `inner` hasn't been called yet
-
-Submit your ordering on the CTFd scoreboard.
 
 ## Resources
 

@@ -1,3 +1,5 @@
+<img src="../assets/ghidra.png" alt="Ghidra" height="40"> <img src="../assets/gdb.svg" alt="GDB" height="40">
+
 # Day 4: The Toolkit
 
 ## What You'll Learn Today
@@ -98,11 +100,20 @@ info registers
 
 Watch `rip` advance instruction by instruction. See the comparison happen and the jump taken (or not).
 
-## Mini-Challenge: Spot the Pattern
+### 5. See What the Optimizer Does
 
-You'll be given the disassembly of these three functions with the function names removed. Identify which block is the `if-else`, which is the `for` loop, and which is the `while` loop. Point to the instruction(s) that gave it away.
+Recompile your `patterns.c` at a higher optimization level and compare the disassembly:
 
-Submit on the CTFd scoreboard.
+```bash
+gcc -O0 -o patterns-O0 patterns.c
+gcc -O2 -o patterns-O2 patterns.c
+objdump -d patterns-O0 | grep -A 20 '<sum_to_n>'
+objdump -d patterns-O2 | grep -A 20 '<sum_to_n>'
+```
+
+At `-O0`, you'll see the loop structure intact: an initialization, a compare, a jump, an increment. At `-O2`, the compiler may unroll the loop, eliminate it entirely (computing the result at compile time), or keep variables in registers instead of writing them to the stack. The same C code, very different assembly.
+
+You can also paste the code into [godbolt.org](https://godbolt.org/) and toggle between `-O0` and `-O2` to see the changes side by side.
 
 ## Resources
 

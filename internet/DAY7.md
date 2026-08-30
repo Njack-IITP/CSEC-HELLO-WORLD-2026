@@ -14,6 +14,15 @@ Find a partner from the other track. The capstone uses skills from both sides. P
 
 Work through these stages in order:
 
+```mermaid
+flowchart LR
+    A["1. Recon\nNmap scan"] --> B["2. Web\nLogin bypass"]
+    B --> C["3. Crypto\nDecode clue"]
+    C --> D["4. Binary\nstrings on file"]
+    D --> E["5. Forensics\n.pcap analysis"]
+    E --> F["Flag"]
+```
+
 ### Stage 1: Recon (Internet Track, Day 6)
 Scan the capstone server with Nmap. Identify what's running and find the web service.
 
@@ -28,15 +37,6 @@ The decoded clue is a filename. Download that binary from the server. Reverse it
 
 ### Stage 5: Forensics (Internet Track, Day 4)
 Use the credential to identify the right session in a provided `.pcap`. Follow the HTTP stream to find the final flag.
-
-### Stage 6: Victory
-Submit the final flag on the CTFd scoreboard.
-
-## Tips
-
-- **Stuck for 10-15 minutes?** Ask for a hint in Discord.
-- **Working in pairs is the point.** One person from each track covers different stages.
-- Duration: ~2-3 hours.
 
 ## Resources
 

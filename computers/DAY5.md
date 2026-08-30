@@ -48,14 +48,6 @@ Same idea, binary asks for a password, but `strings` won't help this time. The p
 
 Read the disassembly (or Ghidra's decompiler output) and identify the transformation. It's a simple XOR loop. If you can read the XOR key and the encrypted data, you can undo it by hand without ever running the binary.
 
-## Mini-Challenge
-
-Submit the password for crackme1 (required) and crackme2 (stretch) on the CTFd scoreboard.
-
-## Hints
-
-If you're stuck, ask in Discord. Mentors will release hints progressively. Don't worry about needing them, that's what they're for.
-
 ## Resources
 
 - `man strings`
