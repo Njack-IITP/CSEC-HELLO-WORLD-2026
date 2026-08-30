@@ -55,12 +55,6 @@ for key in range(256):
         print(f"Key: {key:#04x} → {result.decode()}")
 ```
 
-## Mini-Challenge
-
-You'll be given 3 short hashed passwords (deliberately weak/common ones). Recover the original word using CyberChef or a hash lookup, and explain in one line why it was easy.
-
-Submit on the CTFd scoreboard.
-
 ## Resources
 
 - [CyberChef](https://gchq.github.io/CyberChef/)

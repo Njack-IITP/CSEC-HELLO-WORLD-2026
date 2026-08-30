@@ -29,15 +29,6 @@ The decoded clue is a filename. Download that binary from the server. Reverse it
 ### Stage 5: Forensics (Internet Track, Day 4)
 Use the credential to identify the right session in a provided `.pcap`. Follow the HTTP stream to find the final flag.
 
-### Stage 6: Victory
-Submit the final flag on the CTFd scoreboard.
-
-## Tips
-
-- **Stuck for 10-15 minutes?** Ask for a hint in Discord.
-- **Working in pairs is the point.** One person from each track covers different stages.
-- Duration: ~2-3 hours.
-
 ## What Comes Next
 
 This week was deliberately introductory. The deeper material lives past this point. Your mentors will hand out per-track resources based on which direction interests you.

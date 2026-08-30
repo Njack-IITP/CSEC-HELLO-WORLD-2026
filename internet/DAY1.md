@@ -41,18 +41,6 @@ Match the output to what you saw in DevTools. You'll see the same headers, the s
 ### 4. Modify a Request
 In DevTools (Network tab), right-click a request > "Copy as cURL." Paste it in your terminal. Change the `User-Agent` header to something custom (e.g., `User-Agent: NJACK`) and resend it. The server doesn't care. It processes it the same way. This is how you learn that headers are just text you control.
 
-## Mini-Challenge: Scavenger Hunt
-
-On [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/) (use the [public demo](https://demo.owasp-juice.shop/) or run `docker run -d -p 3000:3000 bkimminich/juice-shop`):
-
-Find these 3 things using **only DevTools**, no exploitation, just looking around:
-
-1. A cookie name the site sets
-2. A request that fails with an error status code
-3. A comment left in the page source (`Ctrl+U`)
-
-Submit your findings on the CTFd scoreboard.
-
 ## Resources
 
 - [MDN: An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)

@@ -76,17 +76,6 @@ Your job: make the program call `win()`.
 
 Offsets are compiler-version and OS-version dependent. If your number differs from someone else's, that's normal. Re-derive it on your own machine using the cyclic pattern method above.
 
-## Mini-Challenge
-
-Submit the flag from `overflow1` on the CTFd scoreboard.
-
-## Hints
-
-Stuck? Ask in Discord. Hints will be released progressively:
-1. Think about what `gets()` doesn't check
-2. The return address is a fixed number of bytes past the start of the buffer. Find that number
-3. Once you control the return address, point it at `win()`
-
 ## Resources
 
 - [pwn.college](https://pwn.college/): "Program Misuse" module for more after this

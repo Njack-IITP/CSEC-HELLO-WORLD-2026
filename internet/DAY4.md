@@ -37,12 +37,6 @@ You'll be given a small, curated `.pcap` file. Open it in Wireshark.
 
 `File → Export Objects → HTTP`. Wireshark can pull out files (images, HTML pages, downloads) that were transferred in the capture. Export one and hash it with `sha256sum` to verify its integrity.
 
-## Mini-Challenge
-
-Extract the cleartext credential from the provided `.pcap` and submit the username and password on the CTFd scoreboard.
-
-**Stretch:** Try a [picoGym](https://play.picoctf.org/) forensics challenge.
-
 ## Resources
 
 - [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/)

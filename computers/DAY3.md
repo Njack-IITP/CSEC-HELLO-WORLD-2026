@@ -61,12 +61,6 @@ ps aux | head -20            # running processes
 ps aux | grep <your-user>   # just your processes
 ```
 
-## Mini-Challenge: CLI Warm-Up
-
-Work through [OverTheWire Bandit](https://overthewire.org/wargames/bandit/), levels 0 through 5. Each level requires a different Linux command or concept to get the password for the next level.
-
-Submit a screenshot of your Bandit level 5 shell on the CTFd scoreboard.
-
 ## Resources
 
 - [OverTheWire Bandit](https://overthewire.org/wargames/bandit/)

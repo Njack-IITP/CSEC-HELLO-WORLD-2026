@@ -78,16 +78,6 @@ Compare the sizes. Look at `hello.s`. That's what your C became before it turned
 
 Paste your `hello.c` into [godbolt.org](https://godbolt.org/). Toggle between `-O0` (no optimization) and `-O2` (optimized). Watch how the compiler reshapes even simple code.
 
-## Mini-Challenge: Section Scavenger Hunt
-
-You'll be given a mystery binary. Run `readelf -S` and `objdump -d` on it, then answer:
-
-1. Which section is the entry point located in?
-2. Which section would grow if the program had more string literals?
-3. Which section exists at runtime but takes up no space on disk, and why?
-
-Submit your answers on the CTFd scoreboard.
-
 ## Resources
 
 - [Compiler Explorer (godbolt.org)](https://godbolt.org/)

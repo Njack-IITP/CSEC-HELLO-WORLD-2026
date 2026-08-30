@@ -48,14 +48,6 @@ Go to [crt.sh](https://crt.sh/) and look up a domain you own (or one provided fo
 
 **Important:** Only look up domains you own or that are provided for the course.
 
-## Mini-Challenge: File the Intel Report
-
-Turn your Nmap output into a one-page report:
-- For each open port: name the service, guess what it's used for, flag anything worth investigating further
-- Self-grade against the model answer sheet (provided by your mentor)
-
-Submit on the CTFd scoreboard.
-
 ## Resources
 
 - [Nmap Getting Started Guide](https://nmap.org/book/man.html)

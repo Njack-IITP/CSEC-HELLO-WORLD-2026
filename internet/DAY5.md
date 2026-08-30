@@ -54,10 +54,6 @@ You'll be given a pre-made packet capture showing a spoofed DNS response next to
 2. Connect to a free/test VPN (e.g., [ProtonVPN free tier](https://protonvpn.com/free-vpn))
 3. Check your IP again. It's different. That's the VPN working.
 
-## Mini-Challenge
-
-Submit the field that identifies the spoofed DNS response on the CTFd scoreboard.
-
 ## Resources
 
 - [Cloudflare: What is DNS?](https://www.cloudflare.com/learning/dns/what-is-dns/)

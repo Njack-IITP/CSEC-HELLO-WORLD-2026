@@ -53,10 +53,6 @@ Find a search box or input field that reflects your input on the page. Type a ha
 
 While logged in, find a URL with a numeric ID (like a basket or order number). Change the number. Can you see another user's data?
 
-## Mini-Challenge
-
-Complete the 3 exercises above and submit a screenshot of each result on the CTFd scoreboard. This is about recognizing the pattern, not finding new vulnerabilities unaided.
-
 ## Resources
 
 - [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)

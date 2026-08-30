@@ -98,12 +98,6 @@ info registers
 
 Watch `rip` advance instruction by instruction. See the comparison happen and the jump taken (or not).
 
-## Mini-Challenge: Spot the Pattern
-
-You'll be given the disassembly of these three functions with the function names removed. Identify which block is the `if-else`, which is the `for` loop, and which is the `while` loop. Point to the instruction(s) that gave it away.
-
-Submit on the CTFd scoreboard.
-
 ## Resources
 
 - [Compiler Explorer (godbolt.org)](https://godbolt.org/): paste C, see assembly instantly
