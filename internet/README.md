@@ -29,11 +29,20 @@ Content is released one day at a time.
 
 Install these **before Day 1**:
 
-- VirtualBox or VMware with a [Kali Linux](https://www.kali.org/get-kali/#kali-virtual-machines) or Ubuntu VM (2+ CPU cores, 4GB RAM, 25GB disk)
-- Wireshark (needed from Day 4, worth installing now): `sudo apt install wireshark -y`
+- A Linux environment: Kali VM, Ubuntu, WSL2, or Docker
+- Wireshark (needed from Day 4, worth installing now): `sudo apt install wireshark -y` on Linux, or install natively on your OS
 - Bookmark [CyberChef](https://gchq.github.io/CyberChef/), no install needed
-- A terminal with `curl`, `dig`, `ping` available (Kali has all of these)
-- Docker (optional, for running practice apps locally): [install guide](https://docs.docker.com/engine/install/)
+- A terminal with `curl`, `dig`, `ping`, `nmap` available (Kali has all of these)
+- [Docker](https://docs.docker.com/engine/install/) for running practice apps like Juice Shop locally
+
+If using a VM, [Kali Linux](https://www.kali.org/get-kali/#kali-virtual-machines) or Ubuntu with VirtualBox/UTM (2+ CPU cores, 4GB RAM, 25GB disk). Or skip the VM entirely with Docker:
+
+```bash
+docker run -it -p 3000:3000 -v $(pwd):/work ubuntu bash
+apt update && apt install -y curl dnsutils iputils-ping nmap python3 python3-pip
+```
+
+Wireshark is better installed on your host OS (it's a GUI app).
 
 If using Kali, update after first boot:
 ```bash

@@ -31,12 +31,31 @@ Content is released one day at a time.
 
 Install these **before Day 1**. Some (especially Ghidra) take a while:
 
-- A Linux environment: Kali, Ubuntu, or WSL2. Needs `gcc`, `gdb`, and standard binutils (`objdump`, `readelf`, `file`, `strace`)
+- A Linux environment: Kali, Ubuntu, WSL2, or Docker (see below). Needs `gcc`, `gdb`, and standard binutils (`objdump`, `readelf`, `file`, `strace`)
 - pwndbg, a gdb plugin that makes gdb usable: [install guide](https://github.com/pwndbg/pwndbg)
 - Ghidra, free disassembler/decompiler (needed from Day 4): [download](https://ghidra-sre.org/)
 - Python 3 + pwntools (`pip install pwntools`), needed for Day 6
 
-Give your VM at least 2 CPU cores and 4GB RAM. Ghidra wants headroom.
+If using a VM, give it at least 2 CPU cores and 4GB RAM. Ghidra wants headroom.
+
+### Docker (any OS)
+
+If you don't want to set up a full VM or WSL, Docker gives you a Linux shell in one command:
+
+```bash
+docker run -it --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/work -w /work ubuntu bash
+```
+
+Inside the container, install everything:
+```bash
+apt update && apt install -y gcc gdb strace binutils python3 python3-pip git
+pip install pwntools
+git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh && cd ..
+```
+
+Ghidra is a GUI app, so install it on your host OS (Windows/Mac/Linux) and point it at binaries in your shared `/work` folder. Everything else runs inside the container.
+
+To avoid re-installing every time, save your container: `docker commit <container-id> csec-tools` and start it with `docker run -it --cap-add=SYS_PTRACE -v $(pwd):/work csec-tools bash`.
 
 ### On Windows?
 
