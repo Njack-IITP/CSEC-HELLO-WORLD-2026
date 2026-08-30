@@ -34,8 +34,10 @@ Open [CyberChef](https://gchq.github.io/CyberChef/) for all of these.
 ### 1. Encoding vs. Hashing
 
 - Base64-encode a word, then decode it. It reverses perfectly
-- Hash the same word with MD5. Do it twice, get identical output
+- Hash the same word with MD5: in CyberChef, type your word in the Input box, add the "MD5" operation from the left panel, and the Output box shows the hash. Do it twice, get identical output
 - Change one letter, hash again. The output is completely different
+
+To check whether a hash matches a word, hash the word and compare the two hex strings. If they're identical, that word produced the hash. This is how you crack weak passwords: hash each candidate and see which one matches.
 
 ### 2. XOR Break
 

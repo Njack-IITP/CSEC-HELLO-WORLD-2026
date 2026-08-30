@@ -44,7 +44,9 @@ Read through the output line by line. For each open port:
 
 ### 2. Certificate Lookup
 
-Go to [crt.sh](https://crt.sh/) and look up a domain you own (or one provided for the course). Note any subdomains or interesting entries in the certificate history.
+Go to [crt.sh](https://crt.sh/) and look up a domain you own (or one provided for the course).
+
+The results table shows every TLS certificate ever issued for that domain. The "Common Name" and "Matching Identities" columns are where subdomains show up. Look for entries like `staging.example.com`, `api.example.com`, or anything you didn't know existed. Each one is a piece of infrastructure someone set up and possibly forgot about.
 
 **Important:** Only look up domains you own or that are provided for the course.
 

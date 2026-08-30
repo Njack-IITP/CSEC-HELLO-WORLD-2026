@@ -26,9 +26,10 @@ The executable you get on Linux is an **ELF** (Executable and Linkable Format). 
 
 ### Reading a Binary Without Running It
 
-Three commands that tell you what's inside:
+Four commands that tell you what's inside:
 
 - `file ./program`: what kind of binary is this? (ELF? 64-bit? dynamically linked?)
+- `strings ./program`: dump every printable string embedded in the binary. String literals, error messages, passwords left in the code by mistake. If a developer hardcoded a secret, `strings` will find it
 - `readelf -S ./program`: list all sections and their sizes
 - `objdump -d ./program`: disassemble it (show the machine code as assembly)
 
@@ -52,6 +53,7 @@ Compile and inspect:
 ```bash
 gcc -o hello hello.c
 file hello
+strings hello
 readelf -S hello
 objdump -d hello | head -80
 ```
@@ -59,7 +61,8 @@ objdump -d hello | head -80
 Find:
 - The **entry point**: which section is it in?
 - Which section holds the **instructions** your code compiled to
-- Which section holds the **string literal** `"Hello from NJACK!"`
+- Which section holds the **string literal** `"Hello from NJACK!"` (check: does `strings hello` show it?)
+- What else shows up in the `strings` output? Most of it is linker metadata, but your string is in there too
 
 ### 2. See Each Stage
 

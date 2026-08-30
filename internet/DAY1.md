@@ -23,10 +23,17 @@ HTTP is **stateless**. The server forgets you between requests. Cookies solve th
 ### 1. Open DevTools
 Open any website. Press `F12` (or `Ctrl+Shift+I`). Click the **Network** tab.
 
-Reload the page. Find:
-- One request (click it, read its headers)
+Reload the page. You'll see a list of every request the page made.
+
+Click any request. The panel on the right shows its details:
+- **Headers** tab: the method, URL, status code, request and response headers
+- **Response** tab: the actual body the server sent back (HTML, JSON, an error message, etc.)
+- **Preview** tab: a rendered version of the response
+
+Find:
+- One request: click it, read its headers, then switch to the Response tab and read the body
 - A cookie the site sets (check the **Application** tab > Cookies)
-- A request that returns a non-200 status code
+- A request that returns a non-200 status code: click it and read what the server actually sent back in the Response tab
 
 ### 2. View Source vs. Elements
 Press `Ctrl+U` to view the raw HTML source. Now compare it to what you see in DevTools > Elements tab. They can differ. The Elements tab shows the *live* DOM after JavaScript has run.

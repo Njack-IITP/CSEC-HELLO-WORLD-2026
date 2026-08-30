@@ -61,6 +61,18 @@ ps aux | head -20            # running processes
 ps aux | grep <your-user>   # just your processes
 ```
 
+## Practice: OverTheWire Bandit
+
+[OverTheWire Bandit](https://overthewire.org/wargames/bandit/) is a free wargame where each level requires a different Linux command to get the password for the next level. Levels 0 through 5 cover `ssh`, `cat`, `find`, `grep`, and file permissions, all things you've seen today.
+
+SSH into the first level:
+```bash
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+# password: bandit0
+```
+
+Work through levels 0-5. Each password you find is also the login for the next level.
+
 ## Resources
 
 - [OverTheWire Bandit](https://overthewire.org/wargames/bandit/)
