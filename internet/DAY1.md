@@ -53,6 +53,8 @@ Find:
 ### 2. View Source vs. Elements
 Press `Ctrl+U` to view the raw HTML source. Now compare it to what you see in DevTools > Elements tab. They can differ. The Elements tab shows the *live* DOM after JavaScript has run.
 
+While you're in the raw source, scan for HTML comments (`<!-- ... -->`). They're invisible on the rendered page but sit in plain text in the source, and developers routinely leave notes, TODOs, disabled links, and (by mistake) credentials inside them. Anything in a comment shipped to your browser, so it's yours to read.
+
 ### 3. Use curl
 Run this in your terminal:
 ```bash

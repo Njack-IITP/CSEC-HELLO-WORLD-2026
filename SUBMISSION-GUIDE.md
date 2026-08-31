@@ -1,5 +1,9 @@
 # Submission Guide
 
+## Where Challenge Files Come From
+
+When a day says "you'll be given a `.pcap`" (or a binary, a hex string, an exhibit), that file is an **attachment on the challenge itself on the CTFd scoreboard** — open the challenge, download the file from there. The link to CTFd and any files too big to attach are posted in the CSEC Discord. Nothing is committed to this roadmap repo; the walkthroughs teach the technique, CTFd hands you the material.
+
 ## How to Submit Flags
 
 Flags look like this: `NJACK{some_text_here}`
