@@ -27,6 +27,8 @@ By the end of this track, you'll be able to:
 
 Content is released one day at a time.
 
+New to reading assembly? Start with the [assembly primer](ASSEMBLY-PRIMER.md). It covers the dozen instructions, the few registers, and the calling convention that show up in almost every reversing and pwn challenge, written for someone who has never opened a disassembler. Read it before Day 4.
+
 ## Setup
 
 Install these **before Day 1**. Some (especially Ghidra) take a while:
@@ -113,6 +115,7 @@ Ghidra can analyze these ELF binaries on your Mac without Docker.
 
 ## Resources
 
+- [Assembly primer](ASSEMBLY-PRIMER.md): the assembly you need for CTFs, from zero
 - [Compiler Explorer (godbolt.org)](https://godbolt.org/): instant assembly from C
 - [OverTheWire Bandit](https://overthewire.org/wargames/bandit/): CLI fluency practice
 - [pwn.college](https://pwn.college/): deeper binary exploitation after this track
