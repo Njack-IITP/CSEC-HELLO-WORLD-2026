@@ -16,6 +16,8 @@ A page can lock a value behind a password box and still be giving that value awa
 
 A JWT is three Base64 chunks split by dots. Decoding the middle chunk to read the payload is a Day 2 skill. The harder version gives you a token whose signature was made with a weak secret. Because the signing input (`header.payload`) is public, you can take a wordlist, compute the HMAC-SHA256 of the signing input under each candidate secret, and stop when one reproduces the signature on the token. Tools like `jwt_tool` or `hashcat` automate this, but a short Python loop with `hmac` does it too. Once you hold the secret, anything else that was derived from it (a keystream, a re-signed token) is yours to reproduce.
 
+You need a wordlist for this. A small [starter list](./wordlists/starter-wordlist.txt) is in this repo and is enough for the JWT challenge. For real cracking, use rockyou.txt: it ships with Kali at `/usr/share/wordlists/rockyou.txt.gz` (run `gunzip` on it once), or download it from [SecLists](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/rockyou.txt.tar.gz). It is about 14 million passwords, too large to keep in this repo.
+
 ### One-time pads are only safe once (Day 3)
 
 A single-byte XOR you brute force. A long random keystream you cannot, unless the author reused it. If two messages are XOR'd with the same keystream, then XORing the two ciphertexts together cancels the key and leaves you `plaintext1 XOR plaintext2`. From there you guess a word likely to appear in one message (a "crib"), slide it along, and read the other message where it lines up. This is called crib dragging. The mistake, not the math, is what breaks it.
