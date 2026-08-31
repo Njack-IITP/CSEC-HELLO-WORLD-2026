@@ -27,6 +27,8 @@ By the end of this track, you'll be able to:
 
 Content is released one day at a time.
 
+Want a harder version of any day? See [hard mode](../HARD-CHALLENGES.md) for the stretch challenges and the techniques they need.
+
 ## Setup
 
 Install these **before Day 1**. Some (especially Ghidra) take a while:
