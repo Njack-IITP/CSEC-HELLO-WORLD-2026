@@ -59,9 +59,16 @@ traceroute example.com
 
 Note the IP returned and the round-trip time. Different sites, different IPs, different paths.
 
-### 2. MX Records
+### 2. Other Record Types (MX, TXT)
 
-Run `nslookup -type=MX <domain>` on one of your sites. This shows the mail server, a different kind of phonebook entry than the website's IP.
+A domain publishes more than one IP. Each kind of information is a different record type, and you ask for a specific type with `dig`:
+
+```bash
+dig MX <domain>      # mail servers
+dig TXT <domain>     # free-form text records
+```
+
+`MX` returns the mail server, a different phonebook entry than the website's IP. `TXT` records hold arbitrary text: SPF rules, domain-verification strings, and anything else an admin decided to publish. Because `TXT` is a free-form field, people put all sorts of things there, so it is always worth reading what a domain hands back.
 
 ### 3. Spot the Spoofed DNS (Provided Exhibit)
 

@@ -29,6 +29,8 @@ Both tracks run in parallel. Pick whichever sounds more interesting. On Day 7, t
 
 Check the [submission guide](./SUBMISSION-GUIDE.md) for how flags work and the [CTF overview](./HELLO-WORLD-CTF.md) for the full timeline and rules.
 
+Finished a day and want more? The [hard challenges](./HARD-CHALLENGES.md) are a stretch tier that combines and extends what each day teaches. They are optional, worth more points, and come with a map (not a walkthrough) of the techniques involved.
+
 ## What you'll need
 
 A Linux environment (Kali, Ubuntu, or WSL2), a browser, and a terminal. Both tracks also work on macOS with native tool equivalents (no VM required). Each track's README has the full setup list including macOS alternatives. Install everything before Day 1 so you're ready to go.

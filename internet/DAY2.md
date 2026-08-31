@@ -40,6 +40,10 @@ A page displays text you typed (a search term, a comment) without escaping it. I
 
 The app shows your order at `/order?id=5`. What if you change it to `/order?id=6`? If the app never checks whether that order belongs to you, you can see someone else's data.
 
+### Session Tokens (JWT)
+
+Many apps track your login with a JWT, a token that looks like `xxxxx.yyyyy.zzzzz`, three chunks separated by dots. The first two chunks are just Base64: a header and a payload. Paste the middle chunk into a Base64 decoder and you can read exactly what the server put in your session, things like `{"user":"guest","admin":false}`. A JWT is signed, not encrypted, so anyone holding the token can read its contents. The third chunk is the signature, and it is only as strong as the secret used to sign it. A weak secret can be recovered, which is what lets an attacker change the payload and re-sign it. For today, decoding the payload to see what is inside is enough.
+
 ## Hands-On
 
 ### 1. Set Up Juice Shop
