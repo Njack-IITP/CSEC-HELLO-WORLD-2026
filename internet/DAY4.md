@@ -35,7 +35,7 @@ Cleartext protocols (HTTP, FTP, Telnet) send everything, including passwords, as
 
 ### 1. Open the Provided .pcap
 
-You'll be given a small, curated `.pcap` file. Open it in Wireshark.
+Download the `.pcap` from the challenge's attachment on the CTFd scoreboard (link in Discord) and open it in Wireshark. Both today's questions use this same file.
 
 ### 2. Find the Login
 
@@ -46,7 +46,7 @@ You'll be given a small, curated `.pcap` file. Open it in Wireshark.
 
 ### 3. Export an Object (Stretch)
 
-`File → Export Objects → HTTP`. Wireshark can pull out files (images, HTML pages, downloads) that were transferred in the capture. Export one and hash it with `sha256sum` to verify its integrity.
+`File → Export Objects → HTTP`. Wireshark can pull out files (images, HTML pages, downloads) that were transferred in the capture, reconstructing them from the raw packets. Export one, then actually open it and look inside — the contents that crossed the wire are now a file on your disk. (You can also `sha256sum` it to confirm it matches what was sent.)
 
 ## Resources
 

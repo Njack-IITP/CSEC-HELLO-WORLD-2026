@@ -44,6 +44,8 @@ sequenceDiagram
 
 A DNS response is just a UDP packet that says "this domain is at this IP." Without verification (DNSSEC), anyone who can inject a faster response can redirect your traffic. You'll see an example of this in a pre-made packet capture, a spoofed DNS response next to a normal one.
 
+To tell a forged response from a real one, compare the two packets field by field. The fields worth checking: the **transaction ID** (must match the query; a mismatch or a duplicate is suspicious), the **answer IP** (does it point where you'd expect?), the **TTL** (spoofed answers often use an odd value), and the **source** the packet claims to come from. Wireshark shows all of these when you expand the DNS layer of each packet.
+
 ## Hands-On
 
 ### 1. DNS Lookups
